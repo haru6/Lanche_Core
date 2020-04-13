@@ -1,0 +1,14 @@
+﻿@model HomeviewModel
+
+    <partial name="_Caurosel" />
+
+<h2>Os preferidos da semana</h2>
+
+<h4>Tá com fome ????</h4>
+
+<div class="form-row">
+     @foreach(var item in Model.SnacksPrefirred)
+     {
+        <partial name="_SnackResume" for="@item" />
+     }
+</div>
