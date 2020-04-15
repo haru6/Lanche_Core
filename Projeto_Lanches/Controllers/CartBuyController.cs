@@ -33,21 +33,21 @@ namespace Projeto_Lanches.Controllers
             return View(cartbBuyViewModel);
         }
 
-        public RedirectToActionResult AddItemCartBuy(int SnakeId)
+        public RedirectToActionResult AddItemCartBuy(int SnackId)
         {
-            var snakeSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnakeId);
+            var snackSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnackId);
 
-            if(snakeSelected != null)
+            if(snackSelected != null)
             {
-                _cartBuy.AddCart(snakeSelected, 1);
+                _cartBuy.AddCart(snackSelected, 1);
             }
 
             return RedirectToAction("Index");
         }
 
-        public IActionResult RemoveItemCartBuy(int SnakeId)
+        public IActionResult RemoveItemCartBuy(int SnackId)
         {
-            var snakeSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnakeId);
+            var snakeSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnackId);
 
             if(snakeSelected != null)
             {
@@ -57,14 +57,14 @@ namespace Projeto_Lanches.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int SnackId)
         {
-            var snake = _repo.Snacks.FirstOrDefault(s => s.Id == id);
-            if (snake == null)
+            var snack = _repo.Snacks.FirstOrDefault(s => s.Id == SnackId);
+            if (snack == null)
             {
                 return View("~/Views/Error/Error.cshtml");
             }
-            return View(snake);
+            return View(snack);
         }
     }
 }

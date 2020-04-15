@@ -27,7 +27,7 @@
                         @((item.Amount * item.snack.Price).ToString("c"))
                     </td>
                     <td class="text-center">
-                        <a asp-controller="CartBuy" asp-action="RemoveItemCartBuy" asp-route-Id="@item.snack.Id"><img src="~/images/delete.png" /></a>
+                        <a asp-controller="CartBuy" asp-action="RemoveItemCartBuy" asp-route-SnackId="@item.snack.Id"><img src="~/images/delete.png" /></a>
                     </td>
                 </tr>
             }
@@ -45,7 +45,7 @@
     <div class="text-right">
         <div class="btn-group ">
             <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
-            <p class="btn-group">
+            <a class="btn-group">
                 <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Adicionar mais lanches<span class="caret"></span>
                 </a>
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                 </ul>
-            </ p>
+            </a>
         </div>
     </div>
 </div>

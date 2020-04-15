@@ -7,11 +7,11 @@
         <div>
             <h4>@Model.Price.ToString("c")</h4>
         </div>
-        <h3><a asp-controller="Snack" asp-action="Details" asp-route-SnakeId="@Model.Id">@Model.Name</a></h3>
+        <h3><a asp-controller="CartBuy" asp-action="Details" asp-route-SnackId="@Model.Id">@Model.Name</a></h3>
         <p>@Model.DescriptionShort</p>
         <div text-right">
             <p class="formPullRightButton">
-                <a class="btn btn-primary" asp-controller="CartBuy" asp-action="AddItemCartBuy" asp-route-SnakeId="@Model.Id">
+                <a class="btn btn-primary" asp-controller="CartBuy" asp-action="AddItemCartBuy" asp-route-SnackId="@Model.Id">
                     Incluir no Carrinho
                 </a>
             </p>

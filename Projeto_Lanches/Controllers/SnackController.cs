@@ -49,5 +49,23 @@ namespace Projeto_Lanches.Controllers
             SnackList.CategoryCurrent = categoryCurrent; 
             return View(SnackList);
         }
+
+        public IActionResult Search(string searchString)
+        {
+            string _searchString = searchString;
+            IEnumerable<Snack> snacks;
+            string _categoryCurrent = string.Empty;
+
+            if (String.IsNullOrEmpty(_searchString))
+            {
+                snacks = _srepo.Snacks.OrderBy(s => s.Id);
+            }
+            else
+            {
+                snacks = _srepo.Snacks.Where(s => s.Name.ToLower().Contains(_searchString.ToLower()));
+            }
+
+            return View("~/Views/Snack/List.cshtml", new SnackListViewModel { Snacks = snacks, CategoryCurrent = "Todos os lanches" });
+        }
     }
 }

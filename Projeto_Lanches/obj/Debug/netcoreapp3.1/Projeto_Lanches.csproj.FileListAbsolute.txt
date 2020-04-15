@@ -148,3 +148,5 @@ C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp
 C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs
 C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp3.1\Razor\Views\CartBuy\Details.cshtml.g.cs
+C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp3.1\Projeto_Lanches.csproj.CoreCompileInputs.cache
+C:\Users\rpres\source\repos\Projeto_Lanches\Projeto_Lanches\obj\Debug\netcoreapp3.1\Projeto_Lanches.genruntimeconfig.cache
