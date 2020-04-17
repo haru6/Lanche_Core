@@ -21,6 +21,7 @@ namespace Projeto_Lanches.Repositories
         {
             request.RequestSend = DateTime.Now;
             _context.Requests.Add(request);
+            _context.SaveChanges();
 
             var cartBuy = _cartBuy.CartBuyItems;
 
