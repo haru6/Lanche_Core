@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Projeto_Lanches.Models;
 
 namespace Projeto_Lanches.Database
 {
-    public class SnacksContext : DbContext
+    public class SnacksContext : IdentityDbContext<IdentityUser>
     {
         public SnacksContext(DbContextOptions<SnacksContext> options) : base(options)
         {

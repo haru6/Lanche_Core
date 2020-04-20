@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Projeto_Lanches.Models;
 using Projeto_Lanches.Repositories;
@@ -32,7 +33,7 @@ namespace Projeto_Lanches.Controllers
 
             return View(cartbBuyViewModel);
         }
-
+        [Authorize]
         public RedirectToActionResult AddItemCartBuy(int SnackId)
         {
             var snackSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnackId);
@@ -44,7 +45,7 @@ namespace Projeto_Lanches.Controllers
 
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         public IActionResult RemoveItemCartBuy(int SnackId)
         {
             var snakeSelected = _repo.Snacks.FirstOrDefault(s => s.Id == SnackId);

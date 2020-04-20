@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,9 @@ namespace Projeto_Lanches
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<SnacksContext>().AddDefaultTokenProviders();
+
             services.AddControllersWithViews();
             services.AddDbContext<SnacksContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
@@ -54,7 +58,7 @@ namespace Projeto_Lanches
 
             app.UseAuthorization();
             app.UseSession();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "FilterCategory",

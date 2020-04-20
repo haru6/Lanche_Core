@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Projeto_Lanches.Models;
 using Projeto_Lanches.Repositories;
@@ -18,12 +19,12 @@ namespace Projeto_Lanches.Controllers
             _repo = repo;
             _cartBuy = cartBuy;
         }
-
+        [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Checkout(Request request)
         {
