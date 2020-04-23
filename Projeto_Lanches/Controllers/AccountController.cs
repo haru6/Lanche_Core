@@ -70,7 +70,10 @@ namespace Projeto_Lanches.Controllers
                 var result = await _userManager.CreateAsync(user, registerVM.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    await _userManager.AddToRoleAsync(user, "Member");
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    return RedirectToAction("Login", "Account");
                 }
             }
             return View(registerVM);

@@ -24,5 +24,11 @@ namespace Projeto_Lanches.Controllers
             return View(homeViewModel);
         }
 
+        public IActionResult AcessDenied()
+        {
+            return View();
+        }
+
+
     }
 }

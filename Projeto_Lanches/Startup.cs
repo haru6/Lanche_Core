@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +30,8 @@ namespace Projeto_Lanches
 
             services.AddControllersWithViews();
             services.AddDbContext<SnacksContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AcessDenied");
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ISnackRepository, SnackRepository>();
             services.AddTransient<IRequestRepository, RequestRepository>();
@@ -61,6 +64,10 @@ namespace Projeto_Lanches
             app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "AdminArea",
+                    pattern: "{area:exists}/{Controller=Admin}/{Action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(name: "FilterCategory",
                   pattern: "Snack/{action}/{category?}",
                    defaults: new { Controller = "Snack", action = "List" });
